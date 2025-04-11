@@ -1,9 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 
 # Initialize the Flask application
-app = Flask(__name__)
+app = Flask("app")
 
 # Configure location of new database 
 # db connects to the toolkit to Flask project referred to as app which is passed as an argument
@@ -24,11 +24,18 @@ class Villain (db.Model):
 def __repr__(self):
    return "<Villain " + self.name + ">"
 
-
+# connect database to app
+with app.app_context():
+  db.create_all()
+  db.session.commit()
 
 @app.route("/")
-def hello_world():
+def villain_cards():
   return render_template("villain.html")
+
+@app.route("/add", methods=["GET"])
+def add_villain():
+   return render_template("addvillain.html", errors=[])
 
 # Run the flask server
 if __name__ == "__main__":
