@@ -1,0 +1,20 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px auto;
+  }
+   
+  .header {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 60px;
+    margin: 0px auto;
+    background-color: lightgrey;
+  }
+   
+  .card {
+    width: 30%;
+    height: 200px;
+    background-color: aliceblue;
+    margin: 5px auto 5px auto;
+  }
