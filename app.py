@@ -77,15 +77,14 @@ def add_user():
 # POST method to delete villain
 @app.route("/deleteVillain", methods=["POST"])
 def delete_user():
-  name = request.form.get("name")
-# query database to check if the villain already exists in database
-  villain = Villain.query.filter_by(name=name).first()
-  if villain:
-    db.session.delete(villain)
-    db.session.commit()
-  return render_template("villain.html", villains=Villain.query.all())
-  else:
-return render_template("deleteVillain.html", errors=["Oops! That villain doesn't exist!"])
+	name = request.form.get("name")
+	villain = Villain.query.filter_by(name=name).first()
+	if villain:
+		db.session.delete(villain)
+		db.session.commit()
+		return render_template("villain.html", villains=Villain.query.all())
+	else:
+		return render_template("deletevillain.html", errors=["Oops! That villain doesn't exist!"])
 
 # Run the flask server
 app.run(host="0.0.0.0", port=8080)
