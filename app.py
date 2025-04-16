@@ -29,7 +29,7 @@ with app.app_context():
 
 @app.route("/")
 def villains_cards():
-  return render_template("villain.html")
+  return render_template("villain.html", villains=Villain.query.all())
 
 # Add a villain to database
 # errors handles if the user doesn't fill out required fields
