@@ -18,21 +18,17 @@
     </div>
   </div>
   <div class="content">
+    {% for villain in villains %}
     <div class="card">
-      <!-- Add an h2 element with class card-name -->
-      <h2 class="card-name">Bugsy Betty</h2>
-      <!-- Add an img element with class card-image and src the image link provided -->
-      <img class="card-image" src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2019/09/betty.jpg"/>
+      <h2 class="card-name">{{villain.name}}</h2>
+      <img class="card-image" src={{villain.url}}/>
       <div class="card-body">
-        <!-- Add an p element with class card-description -->
-        <p class="description">"I'll just be here. Messin' up your app. It'll probably take you 3 hours to find that one line of code that's destroying your life. Feel the rage. I feed on your anger and wasted time! Heh heh heh."
-        </p>
-        <!-- Add an h4 element for Interests -->
+        <p class="description">{{villain.description}}</p>
         <h4>Interests</h4>
-        <p class="card-interests">Breaking websites and apps, destroying your sould, maing you question why you're learning programming to begin with.</p>
-        <!-- Add an p element with class card-date-added -->
-        <p class="card-date-added">Date added: 4/14/2025</p>
+        <p class="card-interests">{{villain.interests}}</p>
+        <p class="card-date-added">{{villain.date_added}}</p>
       </div>
+    {% endfor %}
     </div>
   </div>
 </body>
